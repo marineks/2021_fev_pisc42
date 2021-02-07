@@ -1,0 +1,6 @@
+Credentials cache: API:0C7EBF4B-7AAB-490C-8D4A-A36DE2FA5D9F
+        Principal: msanjuan@42.FR
+
+  Issued                Expires               Principal
+Feb  2 08:42:07 2021  Feb  9 08:42:07 2021  krbtgt/42.FR@42.FR
+Feb  2 08:42:08 2021  Feb  9 08:42:07 2021  HTTP/student-storage-2.42.fr@42.FR
