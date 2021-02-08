@@ -12,6 +12,16 @@
 
 #include <unistd.h>
 
+void	ft_raccourcir(char *a, char *b, char *c)
+{
+	if (*b == '8')
+		{
+			(*a)++;
+			*b = *a + 1;
+			*c = *b + 1;
+		}
+}
+
 void	ft_print_comb(void)
 {
 	char a[3];
@@ -31,12 +41,7 @@ void	ft_print_comb(void)
 			a[1]++;
 			a[2] = a[1] + 1;
 		}
-		if (a[1] == '8')
-		{
-			a[0]++;
-			a[1] = a[0] + 1;
-			a[2] = a[1] + 1;
-		}
+		ft_raccourcir(a, a + 1, a + 2);
 		write(1, &a, 3);
 		a[2] = a[2] + 1;
 		if (a[0] != '7')
@@ -51,3 +56,4 @@ int		main(void)
 	ft_print_comb();
 	return (0);
 }
+
