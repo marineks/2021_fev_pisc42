@@ -1,17 +1,17 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: msanjuan <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/07 17:13:31 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/02/07 17:14:53 by msanjuan         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <stdio.h>
 
-void	ft_ft(int *nbr)
+void    ft_ft(int *wen)
 {
-	int a;
-	int *nbr;
+
+    *wen = 42;
+    printf("%p\n", wen);
+}
+
+int		main(void)
+{
+    int tiff =100;
+	ft_ft(&tiff);
+    printf("%d",tiff);
+    printf("%p\n", &tiff);
+	return (0);
 }
