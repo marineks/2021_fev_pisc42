@@ -1,37 +1,60 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msanjuan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/09 10:43:39 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/02/09 15:34:43 by msanjuan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_rev_int_tab(int *tab, int size)
+#include <stdio.h>
+
+void	ft_rev_int_tab(int *tab, int size)
 {
-    int i;
-    int sorted_tab[size];
+	int i;
+	int j;
+	int temp; // variable qui sert a stocker 
 
-    i = 0;
-    while (i < size)
-    {
-        i++;
-        sorted_tab[size - 1 - i] = *(tab + i);
-    }
-    i = 0;
-    while (i < size)
-    {
-        i++;
-        tab[i] = sorted_tab[i];
-    }
+	i = 0;
+	j = size - 1;
+
+	while (i < size / 2) // ou alors tant que i!=j ? 
+	{
+		// swapper les valeurs
+		temp = *(tab + i);
+		*(tab + i) = *(tab + j);
+		*(tab + j) = temp;
+		// incrementer i et decrementer j pour selectionner la paire suivante
+		i++;
+		j--;
+	}
 }
 
-int main(void)
+int		main(void)
 {
-    int arr;
-    ft_rev_int_tab(&arr, 5);
-    return (0);
+	int size = 12;
+	int tab[12] = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+
+	int k;
+
+	k = 0;
+
+	while ( k < size)
+	{
+		printf(" %d", tab[k]);
+		k++;
+	}
+	ft_rev_int_tab(tab, size);
+	printf("\n");
+	k = 0;
+	while (k < size)
+	{
+		printf(" %d", tab[k]);
+		k++;
+	}
+	
+	return (0);
 }
-
-// pistes
-/* 
-1 - prendre l'index et le retourner?
-2 - créer un array dans lequel on va mettre les valeurs de l'array 
-donné mais dans l'autre sens et retourner cet array
-
-8 fev 2021 : stack smashing detected car jessaye d acceder
-a un element hors de l array A CORRIGER
-*/
