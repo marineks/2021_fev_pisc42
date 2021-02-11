@@ -16,24 +16,22 @@
 
 #include <stdio.h>
 
-char    *ft_strupcase(char *str)
+char *ft_strupcase(char *str)
 {
     int i;
 
     i = 0;
-     while (str[i] != '\0')
-     {
-         str[i] = str[i] - 40;
-         i++;
-     }
-     printf("%c", str);
+    while (str[i] != '\0')
+    {
+        str[i] = str[i] - 32;
+        i++;
+    }
+    printf("%s", str);
     return (str);
 }
-int     main(void)
+int main(void)
 {
-    char test;
-    
-    test = "hello";
+    char test[] = {'h', 'e', 'l', 'l', 'o'};
 
     ft_strupcase(test);
     return (0);
