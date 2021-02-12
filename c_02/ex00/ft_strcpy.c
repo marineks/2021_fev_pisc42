@@ -38,6 +38,5 @@ int main(void)
 		printf("%c", dest[i]);
 		i++;
 	}
-
 	return (0);
 }
