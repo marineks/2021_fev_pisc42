@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/11 07:47:38 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/02/11 07:51:18 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/02/12 07:53:21 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/02/12 07:53:23 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// STRLCPY PRESQUE FAIT MAIS DOIT REPRODUIRE SRC EN ENTIER?
 
-// NB : n c'est toujours la longueur de dest!!!! donc si src = n = remplace. si src > n : remplace jusqua la fin de dest
-// si src < n, on remplace le reste par des \0. 
 
 #include <stdio.h>
 
