@@ -48,7 +48,8 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		i = 0;
 		while (i < ft_strlen(src)) // swappe les valeurs jusqu a la fin de src
 		{
-			dest[i] = src[i]; 
+			dest[i] = src[i];
+			i++; 
 		}
 		while (dest[i] != 0) // on reprend le i incremente et on met des \0 jusqu a la fin de dest
 		{
