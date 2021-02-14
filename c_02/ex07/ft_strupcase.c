@@ -19,17 +19,17 @@
 char *ft_strupcase(char *str)
 {
     int i;
-    int is_alpha_lowercase;
-
+    
     i = 0;
-    is_alpha_lowercase = str[i] >= 97 && str[i] <= 122;
-    if (is_alpha_lowercase)
-    {
+   
         while (str[i] != '\0')
         {
-            str[i] = str[i] - 32;
-            i++;
-        }
+            if (str[i] > 96 && str[i] < 123)
+            {
+
+            str[i] = str[i] - 32;     
+            }
+        i++;
     }
 
     printf("%s", str);

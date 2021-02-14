@@ -3,17 +3,18 @@
 char *ft_strlowcase(char *str)
 {
     int i;
-    int is_alpha_uppercase;
-
+    
     i = 0;
-    is_alpha_uppercase = str[i] <= 90 && str[i] >= 65;
-    if (is_alpha_uppercase)
-    {
+   
+    
         while (str[i] != '\0')
         {
-            str[i] = str[i] + 32;
-            i++;
-        }
+            if (str[i] > 64 && str[i] < 91)
+            {
+
+            str[i] = str[i] + 32;     
+            }
+        i++;
     }
 
     printf("%s", str);
@@ -21,7 +22,7 @@ char *ft_strlowcase(char *str)
 }
 int main(void)
 {
-    char test[] = {'H', 'E', 'L', 'L', 'O'};
+    char test[] = {"HELLO HIHI"};
 
     ft_strlowcase(test);
     return (0);

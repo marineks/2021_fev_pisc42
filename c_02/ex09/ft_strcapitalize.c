@@ -15,63 +15,53 @@
 
 char *ft_strlowcase(char *str)
 {
-    int i;
-    int is_alpha_uppercase;
+    int j;
 
-    i = 0;
-    is_alpha_uppercase = str[i] <= 90 && str[i] >= 65;
-    if (is_alpha_uppercase)
-    {
-        while (str[i] != '\0')
+    j = 0;
+        while (str[j] != '\0')
         {
-            str[i] = str[i] + 32;
-            i++;
+            if (str[j] > 64 && str[j] < 91)
+            {
+                str[j] = str[j] + 32;
+            }
+            j++;
         }
-    }
-    printf("%s", str);
-    return (str);
-}
-
-char *ft_strupcase(char *str)
-{
-    int i;
-    int is_alpha_lowercase;
-
-    i = 0;
-    is_alpha_lowercase = str[i] >= 97 && str[i] <= 122;
-    if (is_alpha_lowercase)
-    {
-        while (str[i] != '\0')
-        {
-            str[i] = str[i] - 32;
-            i++;
-        }
-    }
-
-    printf("%s", str);
+    printf("To lowercase : %s", str);
+    printf("\n");
     return (str);
 }
 
 char    ft_strcapitalize(char *str)
 {
     int i;
+    int is_alpha;
+    int is_not_alpha;
+
     i = 0;
-    // appliquer le to lowercase
+    is_alpha = ((str[i] > 96 && str[i] < 123 ) || (str[i] > 64 && str[i] < 91));
+    is_not_alpha = ((str[i - 1] > 31 && str[i - 1] < 65) || (str[i - 1] > 90 && str[i - 1] < 97) || str[i - 1] > 122);
+    
+    // appliquer le to lowercase sur tous les caracteres alphabetiques
     ft_strlowcase(str);
 
-    // dire que des que ca precede un caract non alpha numerique mettre la majuscule 
     while (str[i] != '\0')
     {
-        if (str[i - 1] ) // ici il faudra que str i - 1 soit un carac non alphanumerique (stocker ca dans une variable?)
+        // dire que si ca precede un caract non alpha mettre la majuscule 
+        if (i == 0 || (((str[i - 1] > 31 && str[i - 1] < 48) || (str[i - 1] > 57 && str[i - 1] < 65) || (str[i - 1] > 90 && str[i - 1] < 97) || str[i - 1] > 122) && ((str[i] > 96 && str[i] < 123 ) || (str[i] > 64 && str[i] < 91)))) 
         {
             // si cest le cas, on applique le toUppercase a str i.
+            str[i] = str[i] - 32;
         }
-}
+        i++;
+    }
+    printf("To capitalize : %s", str);   
+
+    return (*str);
 }
 
 int main()
 {
-    char test[] = {"bonJour, cA va bieN?"};
+    char test[] = {"salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un"};
 
     ft_strcapitalize(test);
     return(0);
