@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 23:12:13 by marine            #+#    #+#             */
-/*   Updated: 2021/02/16 14:07:40 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/02/16 15:37:56 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char *ft_strncat(char *dest, char *src, unsigned int nb)
         i++;
     }
     j = 0;
-    while (j < nb)
+    while (j < nb && (dest[i] != '\0' || src[i] != '\0'))
     {
         dest[i] = src[j];
         j++;
