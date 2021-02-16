@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marine <marine@student.42.fr>              +#+  +:+       +#+        */
+/*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 23:12:13 by marine            #+#    #+#             */
-/*   Updated: 2021/02/14 23:17:00 by marine           ###   ########.fr       */
+/*   Updated: 2021/02/16 14:07:40 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ char *ft_strncat(char *dest, char *src, unsigned int nb)
         j++;
         i++;
     }
-    if (nb)
-    {
-        dest[i] = '\0';
-    }
+    dest[i] = '\0';
+    
     return (dest);
 }
 

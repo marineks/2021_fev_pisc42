@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 07:31:32 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/02/15 08:00:26 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/02/16 14:07:38 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,28 @@
 
 char	*ft_strstr(char *str, char *to_find)
 {
-    int i;
-    char *res_final;
+	int		i;
+	int		j;
 
-    i = 0;
-    res_final = NULL;
-    while (str[i] != '\0')
-    {
-       if (str[i] == to_find[i])
-       {
-           res_final = to_find;
-       } 
-       i++;
-    }
-    return (res_final);
+	i = 0;
+	if (to_find[0] == '\0')
+	{
+		return (str);
+	}
+	while (str[i] != '\0')
+	{
+		j = 0;
+		while (str[i + j] == to_find[j])
+		{
+			if (to_find[j + 1] == '\0')
+			{
+				return (str + i);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
 int main(void)
