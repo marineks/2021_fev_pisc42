@@ -20,9 +20,10 @@ int     ft_str_is_printable(char *str)
     
     counter = 0;
     res_final = 1;
+    is_str_printable = str[counter] >= 32 && str[counter] <= 126 ;
     while (str[counter] != '\0')
     {
-        is_str_printable = str[counter] >= 32 && str[counter] <= 126 ; // en table ascii (https://learn.sparkfun.com/tutorials/ascii/all)
+         // en table ascii (https://learn.sparkfun.com/tutorials/ascii/all)
         if (!is_str_printable) 
         {
             res_final = 0;
@@ -35,7 +36,7 @@ int     ft_str_is_printable(char *str)
 
 int     main(void)
 {
-    char test[] = {'a', 'b', 'c'};
+    char test[] = {'a', '?', 'c'};
 
     ft_str_is_printable(test);
     return (0);

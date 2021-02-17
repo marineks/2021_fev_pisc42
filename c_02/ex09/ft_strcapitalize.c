@@ -36,22 +36,22 @@ char    ft_strcapitalize(char *str)
     int i;
     int is_alpha;
     int is_not_alpha;
-
     i = 0;
-    is_alpha = ((str[i] > 96 && str[i] < 123 ) || (str[i] > 64 && str[i] < 91));
-    is_not_alpha = ((str[i - 1] > 31 && str[i - 1] < 65) || (str[i - 1] > 90 && str[i - 1] < 97) || str[i - 1] > 122);
     
     // appliquer le to lowercase sur tous les caracteres alphabetiques
     ft_strlowcase(str);
 
     while (str[i] != '\0')
     {
+        is_alpha = str[i] > 96 && str[i] < 123;
+        is_not_alpha = ((str[i - 1] > 31 && str[i - 1] < 48) || (str[i - 1] > 57 && str[i - 1] < 65) || (str[i - 1] > 90 && str[i - 1] < 97) || str[i - 1] > 122);
+    
         // dire que si ca precede un caract non alpha mettre la majuscule 
-        if (i == 0 || (((str[i - 1] > 31 && str[i - 1] < 48) || (str[i - 1] > 57 && str[i - 1] < 65) || (str[i - 1] > 90 && str[i - 1] < 97) || str[i - 1] > 122) && ((str[i] > 96 && str[i] < 123 ) || (str[i] > 64 && str[i] < 91)))) 
+        if (i == 0 || (is_not_alpha && is_alpha)) 
         {
             // si cest le cas, on applique le toUppercase a str i.
             str[i] = str[i] - 32;
-        }
+        } 
         i++;
     }
     printf("To capitalize : %s", str);   

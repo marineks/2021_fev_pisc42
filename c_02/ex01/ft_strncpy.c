@@ -23,12 +23,16 @@ char *ft_strcpy(char *dest, char *src, unsigned int n)
 	unsigned int i;
 
 	i = 0;
-	while (src[i] != '\0' && i < n) // tant que l'on arrive pas à la dernière case et que i < n
+	while (src[i] != '\0') // tant que l'on arrive pas à la dernière case et que i < n
 	{
 		dest[i] = src[i]; // on copie src dans dest
 		i++;
 	}
-	dest[i] = '\0'; // j'essaie de rajouter le \0 final à la fin de la loop
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
 	return (dest);
 }
 
