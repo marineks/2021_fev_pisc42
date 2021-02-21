@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 08:14:49 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/02/19 16:50:15 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/02/21 09:25:30 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,41 +33,62 @@ int ft_strlen(char *str)
 int     check_base(char *base)
 {
     unsigned int i;
+    unsigned int j;
 
     i = 0;
-    while (base[i])
+    if (ft_strlen(base) <= 1)
     {
-        if (base[i] == base[i + 1])
         return (0);
+    }
+    while (base[i] != '\0')
+    {
+        if (base[i] == '+' || base[i] == '-')
+        {
+            return (0);
+        }
+        i++;
+    }
+    i = 0;
+    while (base[i] != '\0')
+    {
+        j = i + 1;
+        while (base[j] != '\0')
+        {
+            if (base[i] == base[j] ||base[0] == '\0' || base[1] == '\0' ||  base[i] == '+' || base[i] == '-')
+            {
+                return (0);
+            }
+            j++;
+        }
+        
+        i++;
     }
     return (1);
 }
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-    int temp;
-    temp = nbr;
+    int long temp;
 
-    if (ft_strlen(base) > 1 || *base != '+' || *base != '-' || check_base(base) == 1)
+    temp = nbr;
+    if (check_base(base) == 1)
     {
-        if (nbr == -2147483648)
-        {
-            write(1, "-2147483648", 11);
-        }
-        else if (nbr == 0 && base[nbr] == 0)
-        {
-            ft_putchar(nbr + '0');
-        }
-        else if (nbr < 0)
+        if (temp < 0)
         {
             ft_putchar('-');
-            ft_putnbr_base(nbr * -1, base);
+            temp  = -temp;
         }
-        else if (nbr > 0)
+        if (temp > ft_strlen(base))
         {
-            ft_putnbr_base(nbr / ft_strlen(base), base);
-            ft_putchar(base[nbr % ft_strlen(base)]);
+            ft_putnbr_base(temp / ft_strlen(base), base);
+            //ft_putchar(base[temp % ft_strlen(base)]);
+            ft_putnbr_base(temp % ft_strlen(base), base);
         } 
+        else
+        {
+            ft_putchar(nbr + 48);
+        }
+        
     }
     
 }
@@ -78,6 +99,8 @@ int main()
     char hex[] = "0123456789ABCDEF";
     char oct[] = "poneyvif";
     char bin[] = "01";
+    char trash[] = "4589";
+    char trash2[] = "";
 
     ft_putnbr_base(0, dec); // expected : 0
     write(1, "\n", 1);
@@ -89,6 +112,11 @@ int main()
     write(1, "\n", 1);
     ft_putnbr_base(5, bin); // expected : 101 
     write(1, "\n", 1);
+    write(1, "t\n", 2);
+    ft_putnbr_base(0, trash); // expected : 0
+   write(1, "v\n", 2);
+    ft_putnbr_base(0, trash2); // expected : 0
+
     return (0);
 }
 
