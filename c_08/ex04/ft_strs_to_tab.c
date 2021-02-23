@@ -3,11 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msanjuan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marine <marine@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 14:58:09 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/02/23 14:59:01 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/02/23 20:46:36 by marine           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include "ft_stock_str.h"
 
+int ft_strlen(char *str)
+{
+    int i;
+
+    i = 0;
+    while (str[i])
+        i++;
+    return (i);
+}
+
+char *ft_strdup(char *src)
+{
+    char *dest;
+    int len;
+    int j;
+
+    len = ft_strlen(src);
+    dest = malloc(sizeof(src) * len);
+    j = 0;
+    while (src[j])
+    {
+        dest[j] = src[j];
+        j++;
+    }
+    dest[j] = '\0';
+    write(1, src, len);
+    write(1, "\n", 1);
+    write(1, dest, ft_strlen(dest));
+    return (dest);
+}
+
+struct s_stock_str *ft_strs_to_tab(int ac, char **av)
+{
+    t_stock_str *dest;
+    int i;
+
+    i = 0;
+    if (!(dest = malloc(sizeof(t_stock_str) * (ac + 1))))
+        return NULL;
+    while (i <= (ac - 1))
+    {
+        dest[i].size = ft_strlen(av[i]);
+        dest[i].str = av[i];
+        dest[i].copy = strdup(av[i]);
+        i++;
+    }
+    dest[i].size = 0;
+    dest[i].str = 0;
+    dest[i].copy = 0;
+    return (dest);
+}
