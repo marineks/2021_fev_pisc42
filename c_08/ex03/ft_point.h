@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marine <marine@student.42.fr>              +#+  +:+       +#+        */
+/*   By: msanjuan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/22 18:27:44 by marine            #+#    #+#             */
-/*   Updated: 2021/02/23 07:34:19 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/02/23 14:48:44 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/02/23 14:54:39 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#ifndef FT_POINT_H
+# define FT_POINT_H
 
-void	ft_putchar(char c);
-void	ft_swap(int *a, int *b);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
-
+typedef struct s_point
+{
+	int x;
+	int y;
+}	t_point;
+void set_point(t_point *point);
 #endif
