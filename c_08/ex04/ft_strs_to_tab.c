@@ -6,7 +6,7 @@
 /*   By: marine <marine@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 14:58:09 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/02/23 20:46:36 by marine           ###   ########.fr       */
+/*   Updated: 2021/02/23 20:49:51 by marine           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ char *ft_strdup(char *src)
         j++;
     }
     dest[j] = '\0';
-    write(1, src, len);
-    write(1, "\n", 1);
-    write(1, dest, ft_strlen(dest));
     return (dest);
 }
 
