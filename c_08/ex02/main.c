@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/23 07:35:04 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/02/24 10:58:40 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/02/23 14:45:17 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/02/23 14:46:30 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#include "ft_abs.h"
+#include <stdio.h>
 
-# define EVEN(x) x % 2 == 0
-# define TRUE 1
-# define FALSE 0
-# define SUCCESS 0
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-
-# include <unistd.h>
-
-void			ft_putstr(char *str);
-typedef int		t_bool;
-t_bool			ft_is_even(int nbr);
-#endif
+int main()
+{
+	int value = -20;
+	printf("%d\n", ABS(value));
+	return (0);
+}
